@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos contar</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: monocraft;
+            font-size: 20pt;
+            background-color: rgb(167, 61, 61);
+            color: white;
+        }
+        section{
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            border-radius: 20px;
+            color: black; 
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.527);
+        }   
+        footer{
+            margin-top: 10px;
+        }
+        div#foto{
+            width: 400px;
+            height: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body >
+    <header>
+        <h1>Vamos contar!</h1>
+    </header>
+
+    <section>
+        <br><br>
+        Inicio:
+        <input id="inicio" type="number">
+        <br><br>
+        Fim:
+        <input id="fim" type="number">
+        <br><br>
+        Passo:
+        <input id="passo" type="number">
+        <br><br>
+        <input type="button" value="Contar!" onclick="contar()">
+        <p id="msg">Preparando para a contagem...</p>
+    </section>
+
+    <footer>
+        by: Lucas Kendy
+    </footer>
+    
+    <script>
+        function contar(){
+            var inicio =(document.getElementById('inicio'))
+            var fim=(document.getElementById('fim'))
+            var passo=(document.getElementById('passo'))
+            var msg=document.getElementById('msg')
+            inicio=Number(inicio.value)
+            fim=Number(fim.value)
+            passo=Number(passo.value)
+
+            if(inicio<0 || fim<inicio || passo==0){
+                window.alert('Dados incorretos! Preencha novamente!')
+            }
+            else{
+                msg.innerHTML="contando..."
+                for(let c=inicio;c<=fim;c+=passo){
+                    msg.innerHTML+=`${c}\u{1F449}`
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
